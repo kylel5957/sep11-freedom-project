@@ -1,19 +1,21 @@
 # Tool Learning Log
 
-## Tool: **X**
+## Tool: **Kaboom.js**
 
-## Project: **X**
+## Project: **SEP FREEDOM Project**
 
 ---
 
-### X/X/XX:
-* Text
+### 9/30/24:
+* Imported CDN for Kaboom.js
+* [kaboom](../)
+* Changed the positioning of the text and the text itself
 
 ### X/X/XX:
 * Text
 
 
-<!-- 
+<!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
 * Challenges, a-ha moments, etc
