@@ -11,8 +11,10 @@
 * [kaboom](../)
 * Changed the positioning of the text and the text itself
 
-### X/X/XX:
-* Text
+### 10/6/24:
+* Added NPM for Kaboom.js
+* Tried adding a sprite into the code and so I added Mario
+![alt text](image-1.png)
 
 
 <!--

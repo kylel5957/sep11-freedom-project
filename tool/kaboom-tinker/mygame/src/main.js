@@ -1,12 +1,16 @@
 import kaboom from "kaboom"
 
-const k = kaboom()
+const l = kaboom()
 
-k.loadSprite("bean", "sprites/bean.png")
+l.loadSprite("bean", "sprites/bean.png")
+l.loadSprite("mario", "sprites/mario.png")
 
-k.add([
-	k.pos(120, 80),
-	k.sprite("bean"),
+l.add([
+	l.pos(120, 80),
+	l.sprite("bean"),
 ])
-
-k.onClick(() => k.addKaboom(k.mousePos()))
+l.add([
+	l.pos(200, 100),
+	l.sprite("mario"),
+])
+l.onClick(() => l.addKaboom(l.mousePos()))
