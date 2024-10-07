@@ -17,6 +17,7 @@
 ![alt text](image-1.png)
 * Also messed around with the code and changed the variables to see if it would change anything
 ![alt text](image-2.png)
+* Learned that `npm run dev` would start a local server like http-sever would but for Kaboom.js
 
 <!--
 * Links you used today (websites, videos, etc)
