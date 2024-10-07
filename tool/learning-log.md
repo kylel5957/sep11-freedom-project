@@ -15,7 +15,8 @@
 * Added NPM for Kaboom.js
 * Tried adding a sprite into the code and so I added Mario
 ![alt text](image-1.png)
-
+* Also messed around with the code and changed the variables to see if it would change anything
+![alt text](image-2.png)
 
 <!--
 * Links you used today (websites, videos, etc)
