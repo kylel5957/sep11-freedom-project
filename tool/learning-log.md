@@ -20,6 +20,7 @@
 * Learned that `npm run dev` would start a local server like http-sever would but for Kaboom.js
 * Note, scale(any number) will change a sprites size
 * Note, functions and vairables are very useful becuase of how repetitive some of the code gets
+![image](https://github.com/user-attachments/assets/3bb52b64-0b3b-4e6b-b152-0d30cabba1c9)
 
 <!--
 * Links you used today (websites, videos, etc)
