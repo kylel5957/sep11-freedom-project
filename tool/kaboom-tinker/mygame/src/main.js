@@ -28,20 +28,29 @@ l.add([
 	l.sprite("mario"),
 ])
 
-block(140,400);
-block(220,400);
-block(300,400);
-block(380,400);
-block(460,400);
-block(540,400);
-block(620,400);
-block(700,400);
-block(780,400);
-block(860,400);
-block(940,400);
-block(1020,400);
-block(1100,400);
-block(1180,400);
+// block(140,400);
+// block(220,400);
+// block(300,400);
+// block(380,400);
+// block(460,400);
+// block(540,400);
+// block(620,400);
+// block(700,400);
+// block(780,400);
+// block(860,400);
+// block(940,400);
+// block(1020,400);
+// block(1100,400);
+// block(1180,400);
+
+add([
+    rect(width(), 70),
+    pos(0, height() - 50),
+    outline(8),
+    area(),
+    body({ isStatic: true }),
+    color(200, 150, 255),
+])
 
 loadSpriteAtlas("sprites", {
     "bean": {
@@ -57,6 +66,8 @@ loadSpriteAtlas("sprites", {
         },
     },
 })
-
+onKeyPress("space", () => {
+    bean.jump()
+})
 
 // l.onClick(() => l.addKaboom(l.mousePos()))
