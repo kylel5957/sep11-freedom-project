@@ -1,7 +1,7 @@
 import kaboom from "kaboom"
 
 const l = kaboom()
-
+l.setGravity(1500)
 function block(x,y){
 	l.add([
 		l.pos(x, y),
@@ -10,23 +10,78 @@ function block(x,y){
 	])
 }
 
+loadSprite("bean", "sprites/bean.png")
+loadSprite("mario", "sprites/mario.png")
+loadSprite("block", "sprites/block.png")
 
-
-l.loadSprite("bean", "sprites/bean.png")
-l.loadSprite("mario", "sprites/mario.png")
-l.loadSprite("block", "sprites/block.png")
-
-l.add([
-	l.pos(120, 80),
-	l.sprite("bean"),
-    l.scale(2),
-    l.rotate(30),
-    l.color(200, 100, 255),
+const bean = add([
+	pos(120, 80),
+	sprite("bean"),
+    color(255, 255, 0),
+    area(),
+    body(),
 ])
-l.add([
-	l.pos(200, 100),
-	l.sprite("mario"),
+
+onKeyPress("w", () => {
+    if (bean.isGrounded()) {
+        bean.jump();
+    }
+});
+onKeyPress("d", () => {
+    if (bean.isGrounded()) {
+        bean.jump();
+    }
+});
+
+
+add([
+    rect(width(), 48),
+    pos(0, height() - 50),
+    outline(2),
+    area(),
+    body({ isStatic: true }),
+    color(50, 100, 255),
 ])
+
+
+loop(1, () => {
+    add([
+        rect(20, 20),
+        area(),
+        outline(2),
+        pos(width(), height() - 50),
+        anchor("botleft"),
+        color(255, 180, 255),
+        move(LEFT, 400),
+        "tree",
+    ]);
+});
+
+bean.onCollide("tree", () => {
+    addKaboom(bean.pos);
+    shake();
+});
+
+// addLevel ([
+// "@   "
+// "===="
+// ]
+
+// )
+
+
+
+
+
+
+
+
+
+
+// l.add([
+// 	l.pos(200, 100),
+// 	l.sprite("mario"),
+// ])
 
 // block(140,400);
 // block(220,400);
@@ -43,31 +98,8 @@ l.add([
 // block(1100,400);
 // block(1180,400);
 
-add([
-    rect(width(), 70),
-    pos(0, height() - 50),
-    outline(8),
-    area(),
-    body({ isStatic: true }),
-    color(200, 150, 255),
-])
 
-loadSpriteAtlas("sprites", {
-    "bean": {
-        x: 128,
-        y: 68,
-        width: 144,
-        height: 28,
-        sliceX: 9,
-        anims: {
-            idle: { from: 0, to: 3 },
-            run: { from: 4, to: 7 },
-            hit: 8,
-        },
-    },
-})
-onKeyPress("space", () => {
-    bean.jump()
-})
+
+
 
 // l.onClick(() => l.addKaboom(l.mousePos()))
