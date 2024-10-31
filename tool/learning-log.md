@@ -8,7 +8,7 @@
 
 ### 9/30/24:
 * Imported CDN for Kaboom.js
-* [kaboom](../)
+* [[kaboom](../)](https://kaboomjs.com/doc/setup)
 * Changed the positioning of the text and the text itself
 
 ### 10/6/24:
