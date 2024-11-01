@@ -18,12 +18,12 @@ As I tried kaboom, I
 * Imported CDN for Kaboom.js
 * [kaboom](../)
 * Changed the positioning of the text and the text itself
-
-### 10/6/24:
 * Added NPM for Kaboom.js
 * Tried adding a sprite into the code and so I added Mario
+  
+![image](https://github.com/user-attachments/assets/f4f9e6d6-d293-420e-a1a8-7627ca27afa1)
+* After tinkering around, it seemed like a good fit, pick, and difficulty
 
-![alt text](image-1.png)
 
 
 
