@@ -2,6 +2,7 @@ import kaboom from "kaboom"
 
 const l = kaboom()
 l.setGravity(1500)
+setBackground(255, 255, 0);
 function block(x,y){
 	l.add([
 		l.pos(x, y),
@@ -14,6 +15,7 @@ loadSprite("bean", "sprites/bean.png")
 loadSprite("mario", "sprites/mario.png")
 loadSprite("block", "sprites/block.png")
 
+//sprite//
 const bean = add([
 	pos(120, 80),
 	sprite("bean"),
@@ -21,6 +23,8 @@ const bean = add([
     area(),
     body(),
 ])
+
+//controls//
 
 onKeyPress("w", () => {
     if (bean.isGrounded()) {
@@ -34,33 +38,63 @@ onKeyPress("d", () => {
 });
 
 
+//Blocks//
+
+//bottom//
 add([
-    rect(width(), 48),
-    pos(0, height() - 50),
+    rect(width(), 300),
+    pos(0, height() - 300),
     outline(2),
     area(),
     body({ isStatic: true }),
     color(50, 100, 255),
 ])
 
+//top//
+add([
+    pos(0, 0),
+    rect(2000, 300),
+    outline(2),
+    area(),
+    color(255, 180, 255),
+])
 
+
+//Obstacles//
+//bottom//
 loop(1, () => {
     add([
-        rect(20, 20),
+        rect(20, 60),
         area(),
-        outline(2),
-        pos(width(), height() - 50),
+        outline(3),
+        pos(width(), height() - 300),
         anchor("botleft"),
         color(255, 180, 255),
-        move(LEFT, 400),
+        move(LEFT, 350),
         "tree",
     ]);
 });
 
+//top//
+loop(1, () => {
+    add([
+        rect(20, 150),
+        area(),
+        outline(3),
+        pos(2000, 300),
+        anchor("topright"),
+        color(0, 180, 255),
+        move(LEFT, 350),
+        "tree",
+    ]);
+});
+
+//kaboom effect//
 bean.onCollide("tree", () => {
     addKaboom(bean.pos);
     shake();
 });
+
 
 // addLevel ([
 // "@   "

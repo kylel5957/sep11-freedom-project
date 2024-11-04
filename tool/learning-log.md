@@ -71,7 +71,39 @@ bean.onCollide("block", () => {
 * I was able to change the size, length, width of the obstacle as well as its color
 * I was also able to change the speed it was moving as well as the overall gravity of the entire "world"
 
+### 11/3/24 (LL3)
+* Trying to use what I learned so far, I tried impmenting obstacles on the roof to increase the challenge and make it more visually appealing by taking up the white space
+* After repreatly trying, I couldn't get it to work, only after tinkering for a long time I got it to work
+```js
+ add([
+    pos(0, 0),
+    rect(2000, 300),
+    outline(2),
+    area(),
+    color(255, 180, 255),
+])
+```
+In this case, previously, I had thought that copying the previous code I had for the huge box would work and so I tried copy and pasting and moved the coordinates around
+```js
+add([
+    rect(width(), 300),
+    pos(0, height() - 300),
+    outline(2),
+    area(),
+    body({ isStatic: true }),
+    color(50, 100, 255),
+])
+```
+* This to my suprise didn't work, it either brought me to an error screen or just would have nothing appear on my screen, this puzzled me and so I started doing a kind of rubber duck debugging and walked myself through each line of code and its function
+* to my suprise, I actually figuered something out and it was that I had lots of unecessary code such as `pos(0, height() - 300),` and `pos(0, height() - 300)`, I would only need this if I was trying to erect a rectangle from the bottom to the top, and so I figuered that I can simply that by just simply stating where I wanted them to appear and the size of it towards the top.
+* After a bit of tinkering, I eventually got it working which was nice
+* Another feature I tried to add was a background color, I didn't like the png look of the background and tried to change it, through many different attempts and failures, I learned with each mistake
+* I tried going on the official website which had all the code but it was put in a style that I couldn't understand
 
+![](image-6.png)
+* I started out with `setBackground(r: number, g: number, b: number, alpha?: number)` and kept trying untill it would work. It actually got to a point where I kept removing the code on the inside and got left with `add([rect(2000, 300]), color(0,0,255)` though this didn't work as it erected a giant shape on top of the entire game, I combined the official documentation's code as well as my own thought process and ended up with `setBackground(255, 255, 0);` this to my excitement worked, it changed the png background and changed the color to my desired color.
+
+![alt text](image-7.png)
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
