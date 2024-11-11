@@ -43,7 +43,7 @@ onKeyPress("d", () => {
 //bottom//
 add([
     rect(width(), 300),
-    pos(0, height() - 300),
+    pos(0, height() - 250),
     outline(2),
     area(),
     body({ isStatic: true }),
@@ -53,7 +53,7 @@ add([
 //top//
 add([
     pos(0, 0),
-    rect(2000, 300),
+    rect(2000, 270),
     outline(2),
     area(),
     color(255, 180, 255),
@@ -67,7 +67,7 @@ loop(1, () => {
         rect(20, 60),
         area(),
         outline(3),
-        pos(width(), height() - 300),
+        pos(width(), height() - 250),
         anchor("botleft"),
         color(255, 180, 255),
         move(LEFT, 350),
@@ -78,10 +78,10 @@ loop(1, () => {
 //top//
 loop(1, () => {
     add([
-        rect(20, 150),
+        rect(20, 100),
         area(),
         outline(3),
-        pos(2000, 300),
+        pos(2000, 270),
         anchor("topright"),
         color(0, 180, 255),
         move(LEFT, 350),

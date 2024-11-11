@@ -71,7 +71,7 @@ bean.onCollide("block", () => {
 * I was able to change the size, length, width of the obstacle as well as its color
 * I was also able to change the speed it was moving as well as the overall gravity of the entire "world"
 
-### 11/3/24 (LL3)
+### 11/5/24 (LL3)
 * Trying to use what I learned so far, I tried impmenting obstacles on the roof to increase the challenge and make it more visually appealing by taking up the white space
 * After repreatly trying, I couldn't get it to work, only after tinkering for a long time I got it to work
 ```js
