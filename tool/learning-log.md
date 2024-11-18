@@ -111,3 +111,7 @@ add([
 * Questions you still have
 * What you're going to try next
 -->
+
+### 11/18/24 (LL4)
+* This time I want to try to make levels for a game instead of having a game run continiously so that the user can see variations
+* Started by importing a new game file to work on
