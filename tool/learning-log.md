@@ -114,4 +114,37 @@ add([
 
 ### 11/18/24 (LL4)
 * This time I want to try to make levels for a game instead of having a game run continiously so that the user can see variations
-* Started by importing a new game file to work on
+* Started by importing a new game file to work on called mygame2, to test things out and see what I can acomplish
+* As I tried working to find a solution to start making a level, looking through the documentation, they all used Replit and that was something I wasn't using
+* Therefore I tried looking back on what I had done previously in mygame while also looking through the documentation
+* I Tried really hard to understand how to create a level but it never happened, but it will become a goal for me
+* So i tried to do the little bits first, such as trying to allow the bean to even move left to write, the previous game was a infinite game where the obstacles kept coming at you and you only had to jump
+* Moving left to right was more difficult than I thought, it wasn't as simple as it seemed and tried looking online for what the answer might be, though I only got fragments.
+* I had this code on the previous game and after looking
+```js
+onKeyPress("w", () => {
+    if (bean.isGrounded()) {
+        bean.jump();
+    }
+});
+```
+* I found a snippet of code while looking at the documentation `bean.move(-SPEED, 0)`, though it seemed simple and unordinary, this changed what I thought I could do, I thought about utilizing that snippet with what I already had because I had set a floor the bean could land on but it wasn't moving
+* And after numerous attempts in Frankensteining the code together, something clicked and it worked.
+```JS
+const SPEED = 400;
+
+onKeyDown("a", () => {
+	if (bean.isGrounded()) {
+		bean.move(-SPEED, 0)
+	}
+})
+
+onKeyDown("d", () => {
+	if (bean.isGrounded()) {
+		bean.move(SPEED, 0)
+	}
+})
+```
+* With the conditional of pressing down a button, (not on key press) I could use a conditional exactly the same as the game from mygame and instead of using the ssme inside code, I changed it to where it would depending on the button you held, move your direction in a certain way by attatching thr button with a change in speed.
+* I made it so that only when the bean was on the floor, it could move left and right using the keyboard
+* As I had more code than I used to, I noticed while looking through documentation how everything had a comment to them, noting down their purpose, clarifying the code which was all bunched up together, and I took inspiration and included that into my coding
