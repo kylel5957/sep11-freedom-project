@@ -104,13 +104,8 @@ add([
 * I started out with `setBackground(r: number, g: number, b: number, alpha?: number)` and kept trying untill it would work. It actually got to a point where I kept removing the code on the inside and got left with `add([rect(2000, 300]), color(0,0,255)` though this didn't work as it erected a giant shape on top of the entire game, I combined the official documentation's code as well as my own thought process and ended up with `setBackground(255, 255, 0);` this to my excitement worked, it changed the png background and changed the color to my desired color.
 
 ![alt text](image-7.png)
-<!--
-* Links you used today (websites, videos, etc)
-* Things you tried, progress you made, etc
-* Challenges, a-ha moments, etc
-* Questions you still have
-* What you're going to try next
--->
+
+
 
 ### 11/18/24 (LL4)
 * This time I want to try to make levels for a game instead of having a game run continiously so that the user can see variations
