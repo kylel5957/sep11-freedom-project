@@ -15,7 +15,7 @@
 * Added NPM for Kaboom.js
 * Tried adding a sprite into the code and so I added Mario
 
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 
 * Also messed around with the code and changed the variables to see if it would change anything
 ![alt text](image-2.png)
@@ -143,3 +143,94 @@ onKeyDown("d", () => {
 * With the conditional of pressing down a button, (not on key press) I could use a conditional exactly the same as the game from mygame and instead of using the ssme inside code, I changed it to where it would depending on the button you held, move your direction in a certain way by attatching thr button with a change in speed.
 * I made it so that only when the bean was on the floor, it could move left and right using the keyboard
 * As I had more code than I used to, I noticed while looking through documentation how everything had a comment to them, noting down their purpose, clarifying the code which was all bunched up together, and I took inspiration and included that into my coding
+
+
+
+### 12/7/24 (LL5)
+* Continuing on what I had previously, I sought out to create scene, not level as level indicates singular while a scene is composed of multiple
+* To get started, I looked at official documentation on how to get started with a scene and on [kaboomjs.com](kaboomjs.com) I scrolled down to the scene() and level() section to read what its components were and how to use them
+* At a surface level, it looked easy, all I had to do was set up some code and then by substituiting characters or letters as my sprites, I was able to create a level.
+* Using what I saw on the official website and an additional informational [video](https://www.youtube.com/watch?v=Dkxwe_Gv7q4) I was able to have a sense of an idea of how to get started making levels
+
+```JS
+const LEVELS = [
+	[
+		"@  ^ $  ^^    $    $   >",
+		"========================",
+	],
+	[
+		"@   $   $   $   $   >",
+		"=   =   =   =   =   =",
+	],
+]
+```
+
+* And so I started out simple and tried to create a layout with 2 levels inside, being able to move from level 1 to level 2
+* Though I loaded up my code, expecting to see the bean on my grass block with all my other sprites loaded in. But I saw none of that
+* As I saw nothing, obviously something was wrong and so I checked back with my sources to see what I did differently from them.
+* As I inspected, I saw how they redefined their sprites within a function called "scene"
+
+```JS
+scene("game", ({ levelIdx, score }) => {
+
+	// Use the level previously defined
+	const level = addLevel(LEVELS[levelIdx || 0], {
+		tileWidth: 64,
+		tileHeight: 64,
+		pos: vec2(100, 200),
+		tiles: {
+			"@": () => [
+				sprite("bean"),
+				area(),
+				body(),
+				anchor("bot"),
+				"bean",
+			],
+			"=": () => [
+				sprite("grass"),
+				area(),
+				body({ isStatic: true }),
+				anchor("bot"),
+				scale(.18),
+			],
+			"$": () => [
+				sprite("coin"),
+				area(),
+				anchor("bot"),
+				scale(.3),
+				"coin",
+			],
+			"^": () => [
+				sprite("spike"),
+				area(),
+				anchor("bot"),
+				scale(.2),
+				"danger",
+			],
+			">": () => [
+				sprite("portal"),
+				area(),
+				anchor("bot"),
+				scale(.3),
+				"portal",
+			],
+		},
+	})
+```
+* As I looked at the documentation in the video and website I realised how they set each symbol equal to a sprite and thats where you make the connection. And so I did that myself, writing the code above
+* The "Level" I created had "@" as my Bean sprite; "^" as my spike; "$" as my coins; and "=" as my grass blocks with quotation marks defining the border
+* With this addition and `const bean = level.get("bean")[0]` as my tag for bean
+* I was able to start my game up with
+```JS
+function start() {
+	// Start with the "game" scene, with initial parameters
+	go("game", {
+		levelIdx: 0,
+		score: 0,
+	})
+}
+
+start()
+```
+* Initializing my game and giving it a basic look with nothing special yet
+![alt text](image-8.png)

@@ -1,8 +1,7 @@
 import kaboom from "kaboom"
 
 const k = kaboom()
-const SPEED = 400;
-k.setGravity(1000);
+
 
 //loading sprites
 k.loadSprite("bean", "sprites/bean.png")
@@ -11,52 +10,37 @@ k.loadSprite("coin", "sprites/coin.jpg")
 k.loadSprite("portal", "sprites/portal.jpg")
 k.loadSprite("spike", "sprites/spike.png")
 
-// making sprites
-const bean = k.add([
-	k.pos(120, 80),
-	k.sprite("bean"),
-	area(),
-    body(),
-])
+
+const SPEED = 400;
+k.setGravity(1300);
 
 
-
-// floor
-add([
-    rect(width(), 300),
-    pos(0, height() - 200),
-    outline(2),
-    area(),
-    body({ isStatic: true }),
-    color(50, 100, 255),
-])
-
-//movement
-onKeyPress("space", () => {
-	if (bean.isGrounded()) {
-		bean.jump()
-	}
-})
-
-onKeyDown("left", () => {
-	bean.move(-SPEED, 0)
-})
-
-onKeyDown("right", () => {
-	bean.move(SPEED, 0)
-})
 
 
 const LEVELS = [
 	[
-		"@  ^ $$ >",
-		"=========",
+		"@  ^ $  ^^    $    $   >",
+		"========================",
 	],
 	[
-		"@   $   >",
-		"=   =   =",
+		"@   $   $   $   $   >",
+		"=   =   =   =   =   =",
 	],
 ]
+
+
+// floor
+// add([
+//     rect(width(), 300),
+//     pos(0, height() - 200),
+//     outline(2),
+//     area(),
+//     body({ isStatic: true }),
+//     color(50, 100, 255),
+// ])
+
+
+
 
 // Define a scene called "game". The callback will be run when we go() to the scene
 // Scenes can accept argument from go()
@@ -80,7 +64,7 @@ scene("game", ({ levelIdx, score }) => {
 				area(),
 				body({ isStatic: true }),
 				anchor("bot"),
-				scale(.1),
+				scale(.18),
 			],
 			"$": () => [
 				sprite("coin"),
@@ -106,8 +90,24 @@ scene("game", ({ levelIdx, score }) => {
 		},
 	})
 
-	// Get the player object from tag
+	// Get the object from tag
 	const bean = level.get("bean")[0]
+
+
+	//movement
+onKeyPress("space", () => {
+	if (bean.isGrounded()) {
+		bean.jump()
+	}
+})
+
+onKeyDown("left", () => {
+	bean.move(-SPEED, 0)
+})
+
+onKeyDown("right", () => {
+	bean.move(SPEED, 0)
+})
 
 
 	bean.onCollide("danger", () => {
@@ -118,7 +118,6 @@ scene("game", ({ levelIdx, score }) => {
 
 	bean.onCollide("coin", (coin) => {
 		destroy(coin)
-		play("score")
 		score++
 		scoreLabel.text = score
 	})
@@ -132,7 +131,6 @@ scene("game", ({ levelIdx, score }) => {
 
 	// Enter the next level on portal
 	bean.onCollide("portal", () => {
-		play("portal")
 		if (levelIdx < LEVELS.length - 1) {
 			// If there's a next level, go() to the same scene but load the next level
 			go("game", {
