@@ -18,7 +18,7 @@
 ![alt text](img/image-1.png)
 
 * Also messed around with the code and changed the variables to see if it would change anything
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 * Learned that `npm run dev` would start a local server like http-sever would but for Kaboom.js
 * Note, scale(any number) will change a sprites size
 * Note, functions and vairables are very useful becuase of how repetitive some of the code gets
@@ -33,7 +33,7 @@
 ### 10/23/24 (for 10/28/24)
 * By declaring the variable of the sprites name, then using the descriptions of the sprite, we are able to have the sprite be able to move and jump
 
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 
 * Having a bean that can just jump isn't enough so I looked at a tutorial that taught me how to implement obstacles onto the platform that kept moving and something you can jump over
 * By using a loop conditonal I was able to loop an obstable multiple times in a row
@@ -65,7 +65,7 @@ bean.onCollide("block", () => {
     shake();
 });
 ```
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 
 * This line of code allowed me to have a message "Kaboom" pop up when the bean collides with the obstacle I made while shaking the screen mildly
 * I was able to change the size, length, width of the obstacle as well as its color
@@ -100,10 +100,10 @@ add([
 * Another feature I tried to add was a background color, I didn't like the png look of the background and tried to change it, through many different attempts and failures, I learned with each mistake
 * I tried going on the official website which had all the code but it was put in a style that I couldn't understand
 
-![](image-6.png)
+![](img/image-6.png)
 * I started out with `setBackground(r: number, g: number, b: number, alpha?: number)` and kept trying untill it would work. It actually got to a point where I kept removing the code on the inside and got left with `add([rect(2000, 300]), color(0,0,255)` though this didn't work as it erected a giant shape on top of the entire game, I combined the official documentation's code as well as my own thought process and ended up with `setBackground(255, 255, 0);` this to my excitement worked, it changed the png background and changed the color to my desired color.
 
-![alt text](image-7.png)
+![alt text](img/image-7.png)
 
 
 
@@ -233,4 +233,4 @@ function start() {
 start()
 ```
 * Initializing my game and giving it a basic look with nothing special yet
-![alt text](image-8.png)
+![alt text](img/image-8.png)
