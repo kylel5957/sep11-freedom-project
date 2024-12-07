@@ -234,3 +234,4 @@ start()
 ```
 * Initializing my game and giving it a basic look with nothing special yet
 ![alt text](img/image-8.png)
+* For my next addition, I could try adding sounds, a score, and connecting the portal to the second level
