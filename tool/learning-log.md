@@ -234,4 +234,56 @@ start()
 ```
 * Initializing my game and giving it a basic look with nothing special yet
 ![alt text](img/image-8.png)
-* For my next addition, I could try adding sounds, a score, and connecting the portal to the second level
+* For my next addition, I could try adding sounds, and connecting the portal to the second level
+
+
+
+
+### 12/28/24 (LL6)
+* During break my goal was to add sound effects for when my sprite interacted with the surrounding levels, such as when it collects a coin, falls to its death, enters a portal, or hitting a spike.
+* An additional goal I had in mind for the break was to add additional levels that were unique and would be fun to play on.
+* With those goals in mind, I started out by first researching with how I could implement sound effects into my levels, and so first place I checked was the official website for [kaboom](kaboomjs.com)
+* I looked at the playground section as it shows diverse examples of different elements of kaboom being implemented as an example and so I stumbled upon the "audio" section, at first look it looked too complicated and after reading the code further, it was clear that it was something that I wasn't looking for, with nowhere to go, I decided to move onto adding additional levels
+* There was a "scenes" section as well, looking at the example and the code, it became clear on how to add additional levels, but that wasn't the only reason I looked at the section, I remember when tinkering around and playing around in the section, there were sound effects when interacting with objects, which was exactly what I was looking for
+* With my goal in sight, I found the code that acitvated the audio `play()`
+* And at the top, there was something similar when loading in sprites with sounds.
+* Noting the similarity, I went online to look for mp3 sounds that would pair up perfectly with my game, and after looking online, I found [zapsplat](https://www.zapsplat.com/sound-effect-categories/)
+* So first things first, I used `loadSound()` which worked similarly to `loadSprite()` which made it easy to use, afterwards, in the collisions, I added `play()` and their respective sounds, and this process worked perfectly
+* Afterwards, I wanted to add new levels, using what I saw previously and what I already had, I added variations into my levels, with huge changes in elevations and long levels where one path is predetermined
+
+![alt text](img/newlevel.png)
+
+* I did this by manipulating the symbols each sprite represented to create a new unique level
+```JS
+const LEVELS = [
+	[
+		"@  ^ $  ^^    $    $   >",
+		"========================",
+	],
+	[
+		"@   $   $   $   $   >",
+		"=   =   =   =   =   =",
+	],
+	[
+		"  $               $   ",
+		"  =     $         =   ",
+		"   @    =      $      ",
+		"   =        $  =      ",
+		"     $      =      >  ",
+		"     =             =  ",
+	],
+	[
+		"       ^  $      $     ",
+		" @                     ",
+		"====================== ",
+		"       ^  $            ",
+		"                       ",
+		"  =======================",
+		"         $$$$          ",
+		"                   >   ",
+		"====^========^^========",
+
+	],
+]
+```
+* With this code containing all my levels, I also played around with floor and while doing so, realized that all the quotation marks didn't have to all be on one line, with kaboom giving lots of freedoms with how to create levels.

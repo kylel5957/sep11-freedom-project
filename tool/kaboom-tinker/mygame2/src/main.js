@@ -9,6 +9,15 @@ k.loadSprite("grass", "sprites/grass.png")
 k.loadSprite("coin", "sprites/coin.jpg")
 k.loadSprite("portal", "sprites/portal.jpg")
 k.loadSprite("spike", "sprites/spike.png")
+k.loadSprite("green", "sprites/green.avif")
+
+
+
+k.loadSound("pop", "sounds/pop.mp3")
+k.loadSound("portal", "sounds/portal.mp3")
+k.loadSound("fall", "sounds/fall.mp3")
+k.loadSound("burp", "sounds/burp.mp3")
+
 
 
 const SPEED = 400;
@@ -25,6 +34,26 @@ const LEVELS = [
 	[
 		"@   $   $   $   $   >",
 		"=   =   =   =   =   =",
+	],
+	[
+		"  $               $   ",
+		"  =     $         =   ",
+		"   @    =      $      ",
+		"   =        $  =      ",
+		"     $      =      >  ",
+		"     =             =  ",
+	],
+	[
+		"       ^  $      $     ",
+		" @                     ",
+		"====================== ",
+		"       ^  $            ",
+		"                       ",
+		"  =======================",
+		"         $$$$          ",
+		"                   >   ",
+		"====^========^^========",
+
 	],
 ]
 
@@ -60,11 +89,11 @@ scene("game", ({ levelIdx, score }) => {
 				"bean",
 			],
 			"=": () => [
-				sprite("grass"),
+				sprite("green"),
 				area(),
 				body({ isStatic: true }),
 				anchor("bot"),
-				scale(.18),
+				scale(.11),
 			],
 			"$": () => [
 				sprite("coin"),
@@ -112,25 +141,29 @@ onKeyDown("right", () => {
 
 	bean.onCollide("danger", () => {
 		bean.pos = level.tile2Pos(0, 0)
+		play("burp")
 		// Go to "lose" scene when we hit a "danger"
 		go("lose")
 	})
 
 	bean.onCollide("coin", (coin) => {
 		destroy(coin)
+		play("pop")
 		score++
 		scoreLabel.text = score
 	})
 
 	// Fall death
 	bean.onUpdate(() => {
-		if (bean.pos.y >= 480) {
+		if (bean.pos.y >= 500) {
 			go("lose")
+			play("fall")
 		}
 	})
 
 	// Enter the next level on portal
 	bean.onCollide("portal", () => {
+		play("portal")
 		if (levelIdx < LEVELS.length - 1) {
 			// If there's a next level, go() to the same scene but load the next level
 			go("game", {
