@@ -10,7 +10,7 @@ k.loadSprite("coin", "sprites/coin.jpg")
 k.loadSprite("portal", "sprites/portal.jpg")
 k.loadSprite("spike", "sprites/spike.png")
 k.loadSprite("green", "sprites/green.avif")
-
+k.loadSprite("coin2", "sprites/coin.png")
 
 
 k.loadSound("pop", "sounds/pop.mp3")
@@ -73,7 +73,7 @@ const LEVELS = [
 
 // Define a scene called "game". The callback will be run when we go() to the scene
 // Scenes can accept argument from go()
-scene("game", ({ levelIdx, score }) => {
+scene("game", ({ levelIdx, score, score2 }) => {
 
 	// Use the level passed, or first level
 	const level = addLevel(LEVELS[levelIdx || 0], {
@@ -149,8 +149,8 @@ onKeyDown("right", () => {
 	bean.onCollide("coin", (coin) => {
 		destroy(coin)
 		play("pop")
-		score++
-		scoreLabel.text = score
+		score++;
+		scoreLabel.text = score;
 	})
 
 	// Fall death
@@ -164,22 +164,30 @@ onKeyDown("right", () => {
 	// Enter the next level on portal
 	bean.onCollide("portal", () => {
 		play("portal")
+		score2++;
+		scoreStage.text = score2;
 		if (levelIdx < LEVELS.length - 1) {
 			// If there's a next level, go() to the same scene but load the next level
 			go("game", {
 				levelIdx: levelIdx + 1,
 				score: score,
+				score2: score2,
 			})
 		} else {
 			// Otherwise we have reached the end of game, go to "win" scene!
-			go("win", { score: score })
+			go("win", { score: score, score2: score2})
+
 		}
 	})
 
 	// Score counter text
 	const scoreLabel = add([
 		text(score),
-		pos(12),
+		pos(15),
+	])
+	const scoreStage = add([
+		text(score2),
+		pos(15, 60),
 	])
 
 })
@@ -196,10 +204,10 @@ scene("lose", () => {
 
 })
 
-scene("win", ({ score }) => {
+scene("win", ({ score, score2 }) => {
 
 	add([
-		text(`You grabbed ${score} coins!!!`, {
+		text(`You grabbed ${score} coins!!! You also passed ${score2} levels!!`, {
 			width: width(),
 		}),
 		pos(12),
@@ -214,7 +222,8 @@ function start() {
 	go("game", {
 		levelIdx: 0,
 		score: 0,
-	})
+		score2: 1,
+	});
 }
 
 start()

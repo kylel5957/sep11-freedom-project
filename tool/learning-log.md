@@ -287,3 +287,57 @@ const LEVELS = [
 ]
 ```
 * With this code containing all my levels, I also played around with floor and while doing so, realized that all the quotation marks didn't have to all be on one line, with kaboom giving lots of freedoms with how to create levels.
+
+
+
+### 1/11/25 (LL7)
+* As I set out for a new goal, I thought about making a new counter, a counter to keep track of what level the user was on
+* The accumulated score would also appear at the end, congratulating the player on how many coins they collected and how many levels they passed
+* As I had that goal in mind, I started to formulate a plan in my head, I would start by adding an additional counter under the exisisting coin counter
+
+```JS
+function start() {
+	go("game", {
+		levelIdx: 0,
+		score: 0,
+		score2: 1,
+	});
+}
+
+const scoreStage = add([
+		text(score2),
+		pos(15, 60),
+	])
+```
+
+* I then would add a score to my `scoreStage` every time the bean passed into a portal as that would signify the next level
+
+```JS
+bean.onCollide("portal", () => {
+		play("portal")
+		score2++;
+		scoreStage.text = score2;
+		if (levelIdx < LEVELS.length - 1) {
+			go("game", {
+				levelIdx: levelIdx + 1,
+				score: score,
+				score2: score2,
+			})
+		}
+}
+```
+* This helped greatly as already by this stage, the counter was up and the number was there, though I had a problem with the number saying undefined each time
+* This stumped me because as a thought, I added score2 counters wherever there was a score counter as they should co-exist perfectly, but that didn't work
+* Having no other choices, I reached out to Joe as he is my freedom project partner and he is working on the same tool as him
+* As I consulted with Joe about my problem, he suprisingly had the same problem as me and he eventually figured it out by asing other friends and using external resources
+* He told me that the problem was that somewhere in my code, the computer was confused about the scores and it wasn't properly defined in a place when each scene started
+* As he told me that valuable information, I started to look at places in my code where it said "go" and my score2 variable wasn't there
+* I found that my `go("win", { score: score})` scene which manages the end screen is missing my score2 variable and coincidentally, the only place my score wasn't working and appearing was at the win scene
+* As a fix, I tried `go("win", { score: score}, { score2: score 2})`, mimicking what I wrote for score 1, though it still didn't work
+* As I tried tinkering around, Joe pointed out that maybe I should try joining the 2 different variables together, and so I tried his idea
+* I tried `go("win", { score: score, score2: score2})` and it worked perfectly well, allowing my code to finally display the amount of coins grabbed and the levels the user passed
+
+![alt text](img/newcounter.png)
+
+
+
