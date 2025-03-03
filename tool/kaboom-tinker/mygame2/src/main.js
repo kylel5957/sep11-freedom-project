@@ -58,17 +58,6 @@ const LEVELS = [
 ]
 
 
-// floor
-// add([
-//     rect(width(), 300),
-//     pos(0, height() - 200),
-//     outline(2),
-//     area(),
-//     body({ isStatic: true }),
-//     color(50, 100, 255),
-// ])
-
-
 
 
 // Define a scene called "game". The callback will be run when we go() to the scene
@@ -121,6 +110,22 @@ scene("game", ({ levelIdx, score, score2 }) => {
 
 	// Get the object from tag
 	const bean = level.get("bean")[0]
+
+	// fixed() component to make the object not affected by camera
+	const still = add([
+		fixed(),
+	])
+
+
+	bean.onUpdate(() => {
+		camPos(bean.worldPos()) // Set the viewport center to player.pos
+	})
+
+	bean.onPhysicsResolve(() => {
+		camPos(bean.worldPos()) // Set the viewport center to player.pos
+	})
+
+
 
 
 	//movement
@@ -181,11 +186,11 @@ onKeyDown("right", () => {
 	})
 
 	// Score counter text
-	const scoreLabel = add([
+	const scoreLabel = still.add([
 		text(score),
 		pos(15),
 	])
-	const scoreStage = add([
+	const scoreStage = still.add([
 		text(score2),
 		pos(15, 60),
 	])
@@ -204,6 +209,8 @@ scene("lose", () => {
 
 })
 
+
+
 scene("win", ({ score, score2 }) => {
 
 	add([
@@ -216,6 +223,10 @@ scene("win", ({ score, score2 }) => {
 	onKeyPress(start)
 
 })
+
+
+
+
 
 function start() {
 	// Start with the "game" scene, with initial parameters
