@@ -341,3 +341,46 @@ bean.onCollide("portal", () => {
 
 
 
+### 3/2/25 (LL8)
+* Me and Joe have been working hard on a newly merged repository, working to merge our works together
+* While our code worked perfectly fine, we realized that after we tried it on different devices, our levels didn't look as organized or even fit on different computer screens
+* As we thought about solutions to this problem, we thought about using media querys but in the end, we thought that it would be too complicated
+* As an alternative, we thought about utilizing different camera position that we saw while exploring [kaboom's](kaboomjs.com) documentation
+* The first few attempts it didn't work as I didn't realized that the "player" tag had to change as the documentation only used "player" as a placeholder
+* We found that if you added
+
+```JS
+	bean.onUpdate(() => {
+		camPos(bean.worldPos()) // Set the viewport center to player.pos
+	})
+
+	bean.onPhysicsResolve(() => {
+		camPos(bean.worldPos()) // Set the viewport center to player.pos
+	})
+```
+
+* The onUpdate changes the camera position to be locked onto the bean
+* The onPhysicsResolve locks the camera onto bean
+* This discovery as a result solved our problem
+* But this solution also brought a new problem, the score counter on the screen wasn't locked as a result, looking really odd
+* To find the solution, I browsed the documentation some more and eventually found the `fixed()` component which keeps things in place
+* I simply created a variable that would add the fixed value to whatever it was added to, when then I added onto my text code.
+
+```JS
+	const stationary = add([
+		fixed(), //keeps anything its attatched to fixed
+	])
+
+	const scoreLabel = ui.add([ //attached
+		text(score),
+		pos(15),
+	])
+	const scoreStage = ui.add([
+		text(score2),
+		pos(15, 60),
+	])
+```
+* This as a result solved my issues, with the camera following the player, the levels would all look the same, and the score counter was also now in a fixed position
+* Next time I want to continue with my progress and understanding of kaboom by merging more of my code into the same repository as Joes in order to be on track for the freedom project
+
+
