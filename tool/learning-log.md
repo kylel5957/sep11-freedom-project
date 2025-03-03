@@ -367,15 +367,15 @@ bean.onCollide("portal", () => {
 * I simply created a variable that would add the fixed value to whatever it was added to, when then I added onto my text code.
 
 ```JS
-	const stationary = add([
+	const still = add([
 		fixed(), //keeps anything its attatched to fixed
 	])
 
-	const scoreLabel = ui.add([ //attached
+	const scoreLabel = still.add([ //attached
 		text(score),
 		pos(15),
 	])
-	const scoreStage = ui.add([
+	const scoreStage = still.add([
 		text(score2),
 		pos(15, 60),
 	])
