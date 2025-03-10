@@ -375,7 +375,7 @@ bean.onCollide("portal", () => {
 		text(score),
 		pos(15),
 	])
-	const scoreStage = still.add([
+	const scoreStage = still.add([ //attached
 		text(score2),
 		pos(15, 60),
 	])
