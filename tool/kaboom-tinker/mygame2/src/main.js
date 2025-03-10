@@ -3,6 +3,33 @@ import kaboom from "kaboom"
 const k = kaboom()
 
 
+function addButton(txt, p, a) {
+
+	const btn = add([
+		rect(200, 80, { radius: 10 }),
+		pos(p),
+		area(),
+		scale(1),
+		anchor("center"),
+	])
+
+	btn.add([
+		text(txt),
+		anchor("center"),
+		color(0, 0, 0),
+	])
+
+	btn.onClick(a)
+
+	return btn
+}
+
+
+addButton("Start", vec2(700, 300), () => start())
+
+
+
+
 //loading sprites
 k.loadSprite("bean", "sprites/bean.png")
 k.loadSprite("grass", "sprites/grass.png")
@@ -17,7 +44,6 @@ k.loadSound("pop", "sounds/pop.mp3")
 k.loadSound("portal", "sounds/portal.mp3")
 k.loadSound("fall", "sounds/fall.mp3")
 k.loadSound("burp", "sounds/burp.mp3")
-
 
 
 const SPEED = 400;
@@ -237,4 +263,6 @@ function start() {
 	});
 }
 
-start()
+// start()
+
+//use event listener and then run the start fucntion

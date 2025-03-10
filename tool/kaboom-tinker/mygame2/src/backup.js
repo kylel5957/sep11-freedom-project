@@ -1,61 +1,44 @@
-//This is what it was previously
+onUpdate(() => setCursor("default"))
 
+function addButton(txt, p, f) {
 
-// import kaboom from "kaboom"
+	// add a parent background object
+	const btn = add([
+		rect(240, 80, { radius: 8 }),
+		pos(p),
+		area(),
+		scale(1),
+		anchor("center"),
+		outline(4),
+	])
 
-// const k = kaboom()
-// const SPEED = 400;
-// k.setGravity(1000);
+	// add a child object that displays the text
+	btn.add([
+		text(txt),
+		anchor("center"),
+		color(0, 0, 0),
+	])
 
-// //loading sprites
-// k.loadSprite("bean", "sprites/bean.png")
-// k.loadSprite("block", "sprites/grass.png")
+	// onHoverUpdate() comes from area() component
+	// it runs every frame when the object is being hovered
+	btn.onHoverUpdate(() => {
+		const t = time() * 10
+		btn.color = hsl2rgb((t / 10) % 1, 0.6, 0.7)
+		btn.scale = vec2(1.2)
+		setCursor("pointer")
+	})
 
-// // making sprites
-// const bean = k.add([
-// 	k.pos(120, 80),
-// 	k.sprite("bean"),
-// 	area(),
-//     body(),
-// ])
+	// onHoverEnd() comes from area() component
+	// it runs once when the object stopped being hovered
+	btn.onHoverEnd(() => {
+		btn.scale = vec2(1)
+		btn.color = rgb()
+	})
 
-// // k.add([
-// // 	k.pos(100, 200),
-// // 	k.sprite("block"),
-// // 	k.scale(0.5)
-// // ])
+	// onClick() comes from area() component
+	// it runs once when the object is clicked
+	btn.onClick(f)
 
-// // floor
-// add([
-//     rect(width(), 300),
-//     pos(0, height() - 250),
-//     outline(2),
-//     area(),
-//     body({ isStatic: true }),
-//     color(50, 100, 255),
-// ])
+	return btn
 
-// //kaboom
-// k.onClick(() => k.addKaboom(k.mousePos()))
-
-
-// //movement
-// onKeyPress("space", () => {
-// 	if (bean.isGrounded()) {
-// 		bean.jump()
-// 	}
-// })
-
-// onKeyDown("a", () => {
-// 	if (bean.isGrounded()) {
-// 		bean.move(-SPEED, 0)
-// 	}
-// })
-
-// onKeyDown("d", () => {
-// 	if (bean.isGrounded()) {
-// 		bean.move(SPEED, 0)
-// 	}
-// })
-
-
+}
