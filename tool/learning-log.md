@@ -384,3 +384,36 @@ bean.onCollide("portal", () => {
 * Next time I want to continue with my progress and understanding of kaboom by merging more of my code into the same repository as Joes in order to be on track for the freedom project
 
 
+### 3/9/25 (LL9)
+* As a continuation of my freedom project, I started working on my button for my game. Ideally, it would have a start button and maybe a help button in the future or another button just for fun
+* But as I thought about what I just learned, the DOM unit, buttons and eventListeners, I thought that it would work just as well as in Kaboom
+* So I started looking in the documentation on how to create a button
+* While I was searching for a button, I found where it taught me about buttons and even how to give them a function
+* So I started by writing a function as it told me `function addButton(txt, p, a){}` with the parameters for text, position, and an eventListener
+* Inside the function, I made a button with
+
+```JS
+	const btn = add([
+		rect(200, 80, { radius: 10 }),
+		pos(p),
+		area(),
+		scale(1),
+		anchor("center"),
+	])
+```
+
+* As can be seen, we first define the shape of the button, then give it properties so that we can manipulate it, like the position and the size
+* That code however would only give a blank button, with no text and no purpose so I added
+
+```JS
+btn.add([
+		text(txt),
+		anchor("center"),
+		color(0, 0, 0),
+	])
+```
+* This allows me to add text which would automatically move to the middle while in a black font
+* With the final component being the eventListener `btn.onClick(a)` and `return btn`
+* And to end it all off, I had to call the function while also fufilling all the parameters, giving me `addButton("Start", vec2(700, 300), () => start())`
+* That meant specifying the text on the button which was "Start", location of the button at 700, 300 and telling it to run a function, which for me was start(), to start my game after pressing the button
+* In the future I want to continue adding new features and work off the plan me and Joe made
