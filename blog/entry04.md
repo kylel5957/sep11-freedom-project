@@ -23,7 +23,7 @@ Here is the basic structure of the entire button, with a parameter for the text,
 ```JS
     btn.add([
         text(txt),
-        anchor("center"),
+        anchor(D"center"),
         color(0, 0, 0),
     ])
 ```
@@ -37,9 +37,19 @@ As we had looked for a new default sprite, we scoured the internet to find a goo
 
 ![image](https://github.com/user-attachments/assets/6308532c-9b06-495e-a4ee-13f263412faa)
 
-### Plans
-I plan to continue to add new features into our game, and the next step is to make more levels and add another functioning portal. 
+### Next Plans
+I plan to continue to add new features into our game, and the next step is to make more levels and add another functioning portal. Additionally, we plan to add spikes and coins back into our fused repositiory to make the game more fun. We have many more things in mind, and we will try to achieve all our goals, one step at a time.
 
+### EDP (Engineer Design Process)
+Right now we are on step 5. We are actively building the game that we are envisioning, to build a unique game that educates kids while also being fun. As we are on the building the prototype stage, we plan to do the best we can to make the game visually appealing and have all the features be cool and functioning. 
+
+### Skills 
+
+#### Time Management 
+As it's junior year, 2 AP classes and extracurriculars can be overwhelming sometimes. However, I manage my time carefully, alloting a certain amount of time to tasks and homeworks so that I still have enough time to do the things I want to. With copius amounts of works from other classes, I manage by prioritizing assignments based off their due dates. With proper time management, I am able to work freely on the Freedom project with Joe and thats how I achieve progress even with tons of work, through careful time management and minimal procrastination.
+
+#### Embracing Failure
+As me and Joe were trying to get our HTML file to load, in order to work on our freedom project, we repeated ended up with a wall of error. Relentlessly, we tried different things, different sprites, different code, different file path, and yet, each time it never worked. Despite that, we continued, trying everything untill it worked, and we eventually did find the solution, and through that entire ordeal, we learned that it was a bit of the code's fault and our fault. Throughout this painful journey, we never gave up in the face of failure and kept on pushing forward, because of that, we achieved our goal, the debugging of our file, allowing us to implement our features such as a change in background color, locked camera, start button, and many more to come.
 
 [Previous](entry03.md) | [Next](entry05.md)
 
