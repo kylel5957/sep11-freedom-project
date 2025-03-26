@@ -417,3 +417,33 @@ btn.add([
 * And to end it all off, I had to call the function while also fufilling all the parameters, giving me `addButton("Start", vec2(700, 300), () => start())`
 * That meant specifying the text on the button which was "Start", location of the button at 700, 300 and telling it to run a function, which for me was start(), to start my game after pressing the button
 * In the future I want to continue adding new features and work off the plan me and Joe made
+
+### 3/20/25 (LL10)
+* After successfully adding the button, we decided add the spikes, coin, and adjusted the level to introduce new things
+* The spikes and coins were simple to add as we previously had utilized them
+* The spikes however brought up an issue, the death messgage wasn't present and we had to readd that to the game or else when you hit a spike, you would recieve an error message
+
+```JS
+        player.onCollide("danger", () => {
+		player.pos = level.tile2Pos(0, 0)
+		go("lose", { score: score })
+	})
+```
+
+* This solved the issue as it states in the code, when the player collides with an object with a "danger" tag, it first checks the position of the player and then plays the "lose" scene.
+* As this solved the problem, I started to think about how to utilize this line of code to progress my game
+* Me and Joe brainstormed an idea that we can add a new portal, a portal that would kill you just like a spike would, as the portal would look the exact same and size, the player would have to choose between different portals
+* This plan meant that using the same danger tag, for a sprite that looks unassuming can mean getting the wrong answer to a question would kill you
+```JS
+"(": () => [
+	sprite("pov"),
+	area(),
+	anchor("bot"),
+	scale(.15),
+	"danger",
+],
+```
+* By grabbing the same sprite and giving it a different tag and character, we are able to make a trap portal, one that kills if you enter it, progressing our game.
+* For our next steps, we hope to add the questions into the games so that we can have different paths for the player to choose from
+* We have a sense of idea of what to do and how to implement this into the game, but moving foward, we will be focusing on how to design different levels as the scale change makes the placements of the sprites difficult and confusing with the hitboxes
+* Me and Joe plan on adding new features and adding sounds might be the next part of our game as it would make it more interesting
