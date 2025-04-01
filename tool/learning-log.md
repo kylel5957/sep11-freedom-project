@@ -447,3 +447,26 @@ btn.add([
 * For our next steps, we hope to add the questions into the games so that we can have different paths for the player to choose from
 * We have a sense of idea of what to do and how to implement this into the game, but moving foward, we will be focusing on how to design different levels as the scale change makes the placements of the sprites difficult and confusing with the hitboxes
 * Me and Joe plan on adding new features and adding sounds might be the next part of our game as it would make it more interesting
+
+### 3/30/25 (LL11)
+
+* As I had added a decoy portal, I wanted to add sounds to different actions, such as falling out the level, collecting a coin, and entering a portal.
+* This was a task I have seen in the documentation and so I wanted to do the same in the level me and Joe were creating
+* I wanted to add sounds into the level and so I went to a [free audio website](zapsplat.com) to look for audio
+* Browsing through the website, I found different sounds to use in my level and so I downloaded them as MP3 audio
+* By first creating a new folder called "sounds" I added the new downloaded audio into the folder and renamed them so that it can be in understandable names
+* Then using `k.loadSound("fall", "sounds/fall.mp3")` I was able to load the sound just like how I loaded my sprites in
+* Then by using
+
+```JS
+        player.onUpdate(() => {
+            if (player.pos.y >= 600) {
+                go("lose", { stageScore: stageScore })
+                play("fall")
+            }
+        })
+```
+* `play(fall)` I was able to play a sound whenever a condition was met, when the player died, grabbed a coin, or entered a portal
+* This was a nice addition into our levels as it added depth into our levels and made it more lively
+* The next steps moving foward would be to choose additional sounds with Joe and then try to add the questions into our levels
+* We have an idea of how we are going to do so and so we will continue to try untill we completely finish
