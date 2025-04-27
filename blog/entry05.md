@@ -41,7 +41,7 @@ Me and Joe wanted to hide a little secret within the game and so if the player s
 ![image](https://github.com/user-attachments/assets/4fc551e7-b5a0-40b2-a6f1-6cf8bfd6a334)
 
 ### Future Plans
-We plan on fixing any bugs in our code by reviewing all our code and then we will try to make additional features such as a help screen. We plan on making our game refined and polished and so won't rush with adding new features as got the base game down and so want to make the game as enjoyable as possible while being very educational for those who play.
+We plan on fixing any bugs in our code by reviewing all our code and then we will try to make additional features such as a help screen. We plan on making our game refined and polished and so won't rush with adding new features as got the base game down and so want to make the game as enjoyable as possible while being very educational for those who play. So in our free time, me and Joe will look for cool and unique features we can add into our levels on the [documentation](kaboomjs.com).
 
 ### EDP (Engineer Design Process) 
 We are currently on step 6 and 7 of the EDP process, testing and evaluating while also thinking about ways to improve our product. We now need to fix any bugs we find and polish the levels in order to achieve the perfect state. Additionally, while that happens, we can think about how we can keep on improving with a different feature, but only after polishing the base game can we think about adding more.
